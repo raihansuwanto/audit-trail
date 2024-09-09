@@ -1,4 +1,4 @@
-module github.com/raihansuwanto/audit-trail/v1
+module github.com/raihansuwanto/audit-trail
 
 go 1.21.6
 
