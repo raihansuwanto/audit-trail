@@ -1,4 +1,4 @@
-package activitylog
+package audittrail
 
 type ActivityLogConfig struct {
 	ServiceName               string
