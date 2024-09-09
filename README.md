@@ -16,14 +16,14 @@ The Audit Trail Logging is a comprehensive solution for tracking and managing ev
 To use the Activity Logging Middleware, add the following import to your Go project:
 
 ```bash
-$ go get github.com/raihansuwanto/audit-trail/v1
+$ go get github.com/raihansuwanto/audit-trail
 ```
 
 ### Usage
 
 1. **Configure the Middleware**:
 ```go
-import activitylog "github.com/raihansuwanto/audit-trail/v1"
+import activitylog "github.com/raihansuwanto/audit-trail"
    
    cfg := activitylog.ActivityLogConfig{
        ServiceName:               "your-service-name", // The name of the services
@@ -40,7 +40,7 @@ import activitylog "github.com/raihansuwanto/audit-trail/v1"
 
 2. **Register the Middleware**:
 ```go
-import activitylog "github.com/raihansuwanto/audit-trail/v1"
+import activitylog "github.com/raihansuwanto/audit-trail"
 
     r := chi.NewRouter()
     r.Use(activitylog.NewActivityLogMiddleware(publisher, cfg))
@@ -49,7 +49,7 @@ import activitylog "github.com/raihansuwanto/audit-trail/v1"
 
 3. **Initialize Log**:
 ```go
-import activitylog "github.com/raihansuwanto/audit-trail/v1"
+import activitylog "github.com/raihansuwanto/audit-trail"
 
     activitylog.FromContext(ctx).
         SetTransactionEventType("Update Data Project").
@@ -59,7 +59,7 @@ import activitylog "github.com/raihansuwanto/audit-trail/v1"
 
 3. **Start The Activities**:
 ```go
-import activitylog "github.com/raihansuwanto/audit-trail/v1"
+import activitylog "github.com/raihansuwanto/audit-trail"
 
     activity := tx.StartAction("update", "update project A")
     
