@@ -135,6 +135,15 @@ func parseBody(r *http.Request) map[string]interface{} {
 	if err := render.DecodeJSON(r.Body, &body); err != nil {
 		return nil
 	}
+
+	// Check for large data and remove it
+	for key, value := range body {
+		str, ok := value.(string)
+		if ok && len(str) > 1000 { // Change this to the maximum size you want to allow
+			delete(body, key)
+		}
+	}
+
 	return body
 }
 
